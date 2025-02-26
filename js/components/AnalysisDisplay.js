@@ -8,7 +8,7 @@ const AnalysisDisplay = ({
 }) => {
   return (
     <div className="mb-6">
-      <div className="bg-black rounded-lg p-4 border-2 border-gray-700 relative overflow-hidden min-h-[300px]">
+      <div className="bg-black rounded-lg p-3 border-2 border-gray-700 relative overflow-hidden min-h-[200px] md:min-h-[300px]">
         {/* Progress bar with animated gradient */}
         <div className="mb-4 bg-gray-900 rounded-full h-5 overflow-hidden border border-gray-700">
           <div 

@@ -497,8 +497,8 @@ const XTRM9000FruitAnalyzer = () => {
   
   // Render the component
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4">
-      <div className={`max-w-xl mx-auto rounded-lg p-6 ${dangerPulse ? 'bg-red-900' : pulseEffect ? 'bg-blue-900' : 'bg-gray-800'} transition-colors duration-300`}
+    <div className="min-h-screen bg-gray-900 text-white p-2 md:p-4">
+      <div className={`max-w-xl mx-auto rounded-lg p-3 md:p-6 ${dangerPulse ? 'bg-red-900' : pulseEffect ? 'bg-blue-900' : 'bg-gray-800'} transition-colors duration-300`}
            style={{
              transform: quantumFluctuation !== 0 ? `translateX(${quantumFluctuation}px) rotate(${rotationEffect}deg)` : `rotate(${rotationEffect}deg)`,
              background: rainbowMode ? `linear-gradient(${rainbowHue}deg, #6366f1, #ec4899, #f97316, #facc15, #84cc16, #06b6d4, #6366f1)` : '',
@@ -524,11 +524,11 @@ const XTRM9000FruitAnalyzer = () => {
           </div>
         )}
         
-        <h1 className={`text-center text-3xl font-bold mb-2 ${rainbowMode ? 'text-white' : 'text-blue-400'} animate-pulse`} 
+        <h1 className={`text-center text-2xl md:text-3xl font-bold mb-1 ${rainbowMode ? 'text-white' : 'text-blue-400'} animate-pulse`} 
             style={{textShadow: rainbowMode ? '0 0 10px white' : ''}}>
-          XTRM-9000 QUANTUM ANALYZER
+          XTRM-9000 ANALYZER
         </h1>
-        <h2 className="text-center text-xl mb-6 text-blue-300">🍓🔬 FRUIT ANALYSIS SYSTEM 🧪🍎</h2>
+        <h2 className="text-center text-lg md:text-xl mb-2 md:mb-4 text-blue-300">🍓 FRUIT LETTER COUNTER 🍎</h2>
         
         {/* Top control bar with power indicator */}
         <div className="flex flex-wrap gap-2 justify-between mb-4">
@@ -564,20 +564,20 @@ const XTRM9000FruitAnalyzer = () => {
         </div>
         
         {/* Controls Panel */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <div className={`${getThemeClasses().panel} p-4 rounded-lg border ${getThemeClasses().accent}`}>
-            <h3 className={`text-lg font-semibold mb-4 ${getThemeClasses().text} flex items-center`}>
-              <Cpu className="mr-2" size={18} />
-              Specimen Configuration {getCurrentFruitEmoji()}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-6">
+          <div className={`${getThemeClasses().panel} p-2 md:p-4 rounded-lg border ${getThemeClasses().accent}`}>
+            <h3 className={`text-md md:text-lg font-semibold mb-2 md:mb-4 ${getThemeClasses().text} flex items-center`}>
+              <Cpu className="mr-1 md:mr-2" size={16} />
+              Fruit Selection {getCurrentFruitEmoji()}
             </h3>
             
-            <div className="mb-4">
-              <label className="block mb-2 text-gray-300">Select Fruit Specimen</label>
+            <div className="mb-2 md:mb-4">
+              <label className="block mb-1 md:mb-2 text-sm md:text-base text-gray-300">Fruit Type</label>
               <select 
                 value={fruit}
                 onChange={handleFruitChange}
                 disabled={analyzing}
-                className={`w-full bg-gray-800 text-white p-2 rounded border ${getThemeClasses().accent}`}
+                className={`w-full bg-gray-800 text-white p-1 md:p-2 text-sm md:text-base rounded border ${getThemeClasses().accent}`}
               >
                 {fruitOptions.map(option => (
                   <option key={option.name} value={option.name}>
@@ -587,37 +587,37 @@ const XTRM9000FruitAnalyzer = () => {
               </select>
             </div>
             
-            <div className="mb-4">
-              <label className="block mb-2 text-gray-300">Character to Analyze</label>
+            <div className="mb-2 md:mb-4">
+              <label className="block mb-1 md:mb-2 text-sm md:text-base text-gray-300">Letter to Count</label>
               <input
                 type="text"
                 value={letterToCount}
                 onChange={handleLetterChange}
                 disabled={analyzing}
                 maxLength={1}
-                className={`w-full bg-gray-800 text-white p-2 rounded border ${getThemeClasses().accent}`}
+                className={`w-full bg-gray-800 text-white p-1 md:p-2 text-sm md:text-base rounded border ${getThemeClasses().accent}`}
               />
             </div>
           </div>
           
-          <div className={`${getThemeClasses().panel} p-4 rounded-lg border ${getThemeClasses().accent}`}>
-            <h3 className={`text-lg font-semibold mb-4 ${getThemeClasses().text} flex items-center`}>
-              <Zap className="mr-2" size={18} />
+          <div className={`${getThemeClasses().panel} p-2 md:p-4 rounded-lg border ${getThemeClasses().accent}`}>
+            <h3 className={`text-md md:text-lg font-semibold mb-2 md:mb-4 ${getThemeClasses().text} flex items-center`}>
+              <Zap className="mr-1 md:mr-2" size={16} />
               System Status
             </h3>
             
             {/* Status indicators */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className={`bg-gray-800 p-2 rounded text-sm border ${getThemeClasses().accent}`}>
-                <div className="text-gray-400 mb-1">QUANTUM STABILITY</div>
-                <div className="text-lg font-bold text-green-500">
+            <div className="grid grid-cols-2 gap-2 md:gap-4">
+              <div className={`bg-gray-800 p-1 md:p-2 rounded text-xs md:text-sm border ${getThemeClasses().accent}`}>
+                <div className="text-gray-400 mb-0 md:mb-1">STABILITY</div>
+                <div className="text-sm md:text-lg font-bold text-green-500">
                   {analyzing ? (alertLevel > 1 ? 'UNSTABLE ⚠️' : 'NOMINAL 📊') : 'STABLE ✓'}
                 </div>
               </div>
               
-              <div className={`bg-gray-800 p-2 rounded text-sm border ${getThemeClasses().accent}`}>
-                <div className="text-gray-400 mb-1">SECURITY STATUS</div>
-                <div className={`text-lg font-bold ${alertLevel === 0 ? 'text-green-500' : alertLevel === 1 ? 'text-yellow-500' : 'text-red-500'}`}>
+              <div className={`bg-gray-800 p-1 md:p-2 rounded text-xs md:text-sm border ${getThemeClasses().accent}`}>
+                <div className="text-gray-400 mb-0 md:mb-1">STATUS</div>
+                <div className={`text-sm md:text-lg font-bold ${alertLevel === 0 ? 'text-green-500' : alertLevel === 1 ? 'text-yellow-500' : 'text-red-500'}`}>
                   {alertLevel === 0 ? 'SECURE 🔒' : alertLevel === 1 ? 'CAUTION ⚠️' : 'WARNING 🚨'}
                 </div>
               </div>
@@ -627,7 +627,7 @@ const XTRM9000FruitAnalyzer = () => {
         
         {/* Main display */}
         <div className="mb-6">
-          <div className="bg-black rounded-lg p-4 border-2 border-gray-700 relative overflow-hidden min-h-[500px]">
+          <div className="bg-black rounded-lg p-3 border-2 border-gray-700 relative overflow-hidden min-h-[350px] md:min-h-[400px]">
             {/* Particle effects layer */}
             {particleEffect && (
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -681,7 +681,7 @@ const XTRM9000FruitAnalyzer = () => {
             </div>
             
             {/* Status display */}
-            <div className={`mb-4 p-3 text-center font-bold ${
+            <div className={`mb-2 p-2 md:p-3 text-center font-bold ${
               alertLevel === 0 ? 'text-blue-400' : 
               alertLevel === 1 ? 'text-yellow-500' : 
               'text-red-500 animate-pulse'
@@ -698,7 +698,7 @@ const XTRM9000FruitAnalyzer = () => {
             </div>
             
             {/* Character visualization with advanced effects */}
-            <div className={`mb-4 ${getThemeClasses().panel} p-3 rounded border ${getThemeClasses().accent}`}>
+            <div className={`mb-2 ${getThemeClasses().panel} p-2 md:p-3 rounded border ${getThemeClasses().accent}`}>
               <div className="flex justify-between mb-2">
                 <div className="text-gray-400">CHARACTER ANALYSIS</div>
                 <div className={getThemeClasses().text}>
@@ -710,7 +710,7 @@ const XTRM9000FruitAnalyzer = () => {
                 {fruit.split('').map((letter, index) => (
                   <div 
                     key={index} 
-                    className={`text-lg font-mono p-2 m-1 border-2 rounded-md ${
+                    className={`text-sm md:text-lg font-mono p-1 md:p-2 m-1 border-2 rounded-md ${
                       currentLetterIndex === index ? 'border-yellow-400 bg-yellow-900 text-white animate-pulse shadow-md shadow-yellow-900/50' : 
                       (completed && letter.toLowerCase() === letterToCount.toLowerCase()) ? 
                         `border-green-500 bg-green-900 text-white shadow-md shadow-green-500/50 ${rainbowMode ? 'animate-rainbow' : codecracker ? 'animate-pulse' : ''}` : 
@@ -734,7 +734,7 @@ const XTRM9000FruitAnalyzer = () => {
             </div>
             
             {/* Enhanced status log with special effects */}
-            <div className={`${getThemeClasses().panel} p-3 rounded mb-4 h-28 overflow-y-auto font-mono text-sm border ${getThemeClasses().accent} ${haxxorMode ? 'bg-black' : ''}`}>
+            <div className={`${getThemeClasses().panel} p-3 rounded mb-4 h-20 md:h-28 overflow-y-auto font-mono text-sm border ${getThemeClasses().accent} ${haxxorMode ? 'bg-black' : ''}`}>
               <div className="flex justify-between mb-2">
                 <div className="text-gray-400">SYSTEM LOG</div>
                 <div className={`${
@@ -746,10 +746,10 @@ const XTRM9000FruitAnalyzer = () => {
                 </div>
               </div>
               
-              {statusLog.map((message, index) => (
+              {statusLog.slice(-3).map((message, index) => (
                 <div 
                   key={index} 
-                  className={`mb-1 ${
+                  className={`mb-0 md:mb-1 text-xs md:text-sm ${
                     message.includes('WARNING') || message.includes('DANGER') || message.includes('CRITICAL') || message.includes('EMERGENCY') ? 'text-red-500' : 
                     message.includes('CAUTION') || message.includes('ALERT') ? 'text-yellow-500' : 
                     message.includes('FINAL REPORT') ? 'text-green-400' : 
@@ -767,7 +767,7 @@ const XTRM9000FruitAnalyzer = () => {
             
             {/* Results display with super enhanced ultra effects */}
             {completed && (
-              <div className={`p-4 rounded-lg text-center font-bold text-xl ${getTheme().bg} mb-4 border-2 ${getTheme().text.replace('text-', 'border-')} 
+              <div className={`p-2 md:p-4 rounded-lg text-center font-bold text-lg md:text-xl ${getTheme().bg} mb-2 border-2 ${getTheme().text.replace('text-', 'border-')} 
                 ${ultraMode ? 'animate-pulse shadow-lg shadow-current' : 'shadow-md'} ${getTheme().glow ? getTheme().glow : ''} 
                 ${rainbowMode ? 'animate-rainbow bg-gradient-to-r from-red-900 via-yellow-900 to-blue-900' : ''}
                 ${haxxorMode ? 'bg-black border-green-500 text-green-500 font-mono' : ''}
@@ -817,10 +817,10 @@ const XTRM9000FruitAnalyzer = () => {
         </div>
         
         {/* Action button with fixed height container */}
-        <div className="text-center h-20 flex items-center justify-center">
+        <div className="text-center h-14 md:h-20 flex items-center justify-center">
           <button
             onClick={runAnalysis}
-            className={`px-8 py-4 rounded-lg font-bold text-lg 
+            className={`px-4 md:px-8 py-2 md:py-4 rounded-lg font-bold text-sm md:text-lg 
               ${analyzing ? 'bg-red-700 hover:bg-red-600 border-red-500' : 
                completed ? 'bg-blue-700 hover:bg-blue-600 border-blue-500' : 
                getThemeClasses().button + ' border-' + getThemeClasses().accent.replace('border-', '')
