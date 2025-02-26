@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XTRM-9000 Fruit Letter Counter</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes fadeOut {
+      from { opacity: 0.7; }
+      to { opacity: 0; }
+    }
+    
+    @keyframes glitch1 {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+    
+    @keyframes glitch2 {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(2px, -2px); }
+      40% { transform: translate(2px, 2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(-2px, 2px); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes letterRainbow {
+      0% { color: #ff0000; }
+      16.6% { color: #ffff00; }
+      33.3% { color: #00ff00; }
+      50% { color: #00ffff; }
+      66.6% { color: #0000ff; }
+      83.3% { color: #ff00ff; }
+      100% { color: #ff0000; }
+    }
+    
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    .animate-glitch1 {
+      animation: glitch1 0.5s linear infinite alternate;
+    }
+    
+    .animate-glitch2 {
+      animation: glitch2 0.5s linear infinite alternate;
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-rainbow {
+      animation: letterRainbow 2s infinite;
+    }
+  </style>
+</head>
+<body class="bg-gray-900">
+  <div id="root"></div>
+  
+  <script type="text/babel" src="js/data.js"></script>
+  <script type="text/babel" src="js/utils.js"></script>
+  <script type="text/babel" src="js/components/ModeControls.js"></script>
+  <script type="text/babel" src="js/components/ControlPanel.js"></script>
+  <script type="text/babel" src="js/components/AnalysisDisplay.js"></script>
+  <script type="text/babel" src="js/components/ActionButton.js"></script>
+  <script type="text/babel" src="js/app.js"></script>
+  <script type="text/babel">
+    // Render the App
+    const rootElement = document.getElementById('root');
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<XTRM9000FruitAnalyzer />);
+  </script>
+</body>
+</html>
