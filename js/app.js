@@ -497,8 +497,8 @@ const XTRM9000FruitAnalyzer = () => {
   
   // Render the component
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-2 md:p-4">
-      <div className={`max-w-xl mx-auto rounded-lg p-3 md:p-6 ${dangerPulse ? 'bg-red-900' : pulseEffect ? 'bg-blue-900' : 'bg-gray-800'} transition-colors duration-300`}
+    <div className="min-h-screen bg-gray-900 text-white p-1 md:p-4">
+      <div className={`max-w-xl mx-auto rounded-lg p-2 md:p-6 ${dangerPulse ? 'bg-red-900' : pulseEffect ? 'bg-blue-900' : 'bg-gray-800'} transition-colors duration-300`}
            style={{
              transform: quantumFluctuation !== 0 ? `translateX(${quantumFluctuation}px) rotate(${rotationEffect}deg)` : `rotate(${rotationEffect}deg)`,
              background: rainbowMode ? `linear-gradient(${rainbowHue}deg, #6366f1, #ec4899, #f97316, #facc15, #84cc16, #06b6d4, #6366f1)` : '',
@@ -541,30 +541,30 @@ const XTRM9000FruitAnalyzer = () => {
         </div>
         
         {/* Mode buttons */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 mb-2 md:mb-4">
           <button onClick={toggleUltraMode} disabled={analyzing} 
-                  className={`px-2 py-1 rounded text-xs ${ultraMode ? 'bg-purple-700 text-white' : 'bg-gray-700 text-gray-300'}`}>
-            {ultraMode ? '🔥 ULTRA MODE 🔥' : 'ULTRA MODE'}
+                  className={`px-1 md:px-2 py-1 rounded text-xs ${ultraMode ? 'bg-purple-700 text-white' : 'bg-gray-700 text-gray-300'}`}>
+            {ultraMode ? '🔥 ULTRA 🔥' : 'ULTRA'}
           </button>
           
           <button onClick={toggleScanMode} disabled={analyzing} 
-                  className={`px-2 py-1 rounded text-xs ${scanMode !== 'STANDARD' ? 'bg-cyan-700 text-white' : 'bg-gray-700 text-gray-300'}`}>
-            {scanMode} SCAN
+                  className={`px-1 md:px-2 py-1 rounded text-xs ${scanMode !== 'STANDARD' ? 'bg-cyan-700 text-white' : 'bg-gray-700 text-gray-300'}`}>
+            {scanMode}
           </button>
           
           <button onClick={toggleRainbowMode} disabled={analyzing} 
-                  className={`px-2 py-1 rounded text-xs ${rainbowMode ? 'bg-pink-600 text-white' : 'bg-gray-700 text-gray-300'}`}>
-            {rainbowMode ? '🌈 RAINBOW ON 🌈' : 'RAINBOW MODE'}
+                  className={`px-1 md:px-2 py-1 rounded text-xs ${rainbowMode ? 'bg-pink-600 text-white' : 'bg-gray-700 text-gray-300'}`}>
+            {rainbowMode ? '🌈 RAINBOW 🌈' : 'RAINBOW'}
           </button>
           
           <button onClick={toggleHaxxorMode} disabled={analyzing} 
-                  className={`px-2 py-1 rounded text-xs ${haxxorMode ? 'bg-green-700 text-white' : 'bg-gray-700 text-gray-300'}`}>
-            {haxxorMode ? 'H4XX0R M0D3' : 'HACKER MODE'}
+                  className={`px-1 md:px-2 py-1 rounded text-xs ${haxxorMode ? 'bg-green-700 text-white' : 'bg-gray-700 text-gray-300'}`}>
+            {haxxorMode ? 'H4XX0R' : 'HACKER'}
           </button>
         </div>
         
         {/* Controls Panel */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-4 mb-2 md:mb-6">
           <div className={`${getThemeClasses().panel} p-2 md:p-4 rounded-lg border ${getThemeClasses().accent}`}>
             <h3 className={`text-md md:text-lg font-semibold mb-2 md:mb-4 ${getThemeClasses().text} flex items-center`}>
               <Cpu className="mr-1 md:mr-2" size={16} />
@@ -626,8 +626,8 @@ const XTRM9000FruitAnalyzer = () => {
         </div>
         
         {/* Main display */}
-        <div className="mb-6">
-          <div className="bg-black rounded-lg p-3 border-2 border-gray-700 relative overflow-hidden min-h-[350px] md:min-h-[400px]">
+        <div className="mb-2 md:mb-6">
+          <div className="bg-black rounded-lg p-2 border-2 border-gray-700 relative overflow-hidden min-h-[280px] md:min-h-[400px]">
             {/* Particle effects layer */}
             {particleEffect && (
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -681,7 +681,7 @@ const XTRM9000FruitAnalyzer = () => {
             </div>
             
             {/* Status display */}
-            <div className={`mb-2 p-2 md:p-3 text-center font-bold ${
+            <div className={`mb-1 md:mb-2 p-1 md:p-3 text-center font-bold ${
               alertLevel === 0 ? 'text-blue-400' : 
               alertLevel === 1 ? 'text-yellow-500' : 
               'text-red-500 animate-pulse'
@@ -698,11 +698,11 @@ const XTRM9000FruitAnalyzer = () => {
             </div>
             
             {/* Character visualization with advanced effects */}
-            <div className={`mb-2 ${getThemeClasses().panel} p-2 md:p-3 rounded border ${getThemeClasses().accent}`}>
-              <div className="flex justify-between mb-2">
-                <div className="text-gray-400">CHARACTER ANALYSIS</div>
-                <div className={getThemeClasses().text}>
-                  {scanMode !== 'STANDARD' ? `${scanMode} MODE` : (ultraMode ? 'ULTRA POWER' : 'STANDARD MODE')}
+            <div className={`mb-1 md:mb-2 ${getThemeClasses().panel} p-1 md:p-3 rounded border ${getThemeClasses().accent}`}>
+              <div className="flex justify-between mb-1 md:mb-2">
+                <div className="text-xs md:text-sm text-gray-400">ANALYSIS</div>
+                <div className={`text-xs md:text-sm ${getThemeClasses().text}`}>
+                  {scanMode !== 'STANDARD' ? `${scanMode}` : (ultraMode ? 'ULTRA' : 'STANDARD')}
                 </div>
               </div>
               
@@ -710,7 +710,7 @@ const XTRM9000FruitAnalyzer = () => {
                 {fruit.split('').map((letter, index) => (
                   <div 
                     key={index} 
-                    className={`text-sm md:text-lg font-mono p-1 md:p-2 m-1 border-2 rounded-md ${
+                    className={`text-xs md:text-lg font-mono p-1 md:p-2 m-0.5 md:m-1 border border-2 rounded-md ${
                       currentLetterIndex === index ? 'border-yellow-400 bg-yellow-900 text-white animate-pulse shadow-md shadow-yellow-900/50' : 
                       (completed && letter.toLowerCase() === letterToCount.toLowerCase()) ? 
                         `border-green-500 bg-green-900 text-white shadow-md shadow-green-500/50 ${rainbowMode ? 'animate-rainbow' : codecracker ? 'animate-pulse' : ''}` : 
@@ -734,10 +734,10 @@ const XTRM9000FruitAnalyzer = () => {
             </div>
             
             {/* Enhanced status log with special effects */}
-            <div className={`${getThemeClasses().panel} p-3 rounded mb-4 h-20 md:h-28 overflow-y-auto font-mono text-sm border ${getThemeClasses().accent} ${haxxorMode ? 'bg-black' : ''}`}>
-              <div className="flex justify-between mb-2">
-                <div className="text-gray-400">SYSTEM LOG</div>
-                <div className={`${
+            <div className={`${getThemeClasses().panel} p-2 rounded mb-2 md:mb-4 h-16 md:h-28 overflow-y-auto font-mono text-xs md:text-sm border ${getThemeClasses().accent} ${haxxorMode ? 'bg-black' : ''}`}>
+              <div className="flex justify-between mb-1 md:mb-2">
+                <div className="text-xs md:text-sm text-gray-400">LOG</div>
+                <div className={`text-xs md:text-sm ${
                   alertLevel === 0 ? 'text-green-500' : 
                   alertLevel === 1 ? 'text-yellow-500' : 
                   'text-red-500'
